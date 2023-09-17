@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <div style="margin: 10% 40%; background-color: rgb(96, 105, 198); width:400px; text-align: center; border-radius: 20px;">
+        <h2>BANG DIEM CUA EM</h2>
+        <span>
+            Điểm học kỳ 1
+        </span>
+        <input type="number" id="a"><br><br>
+        <span>
+            Điểm học kỳ 2
+        </span>
+        <input type="number" id="b"><br><br>
+        <span>
+            Năm sinh viên
+        </span>
+        <input type="number" id="nam"><br><br>
+        <span>
+            Tổng điểm
+        </span>
+        <input type="number" id="tong" placeholder="Không nhập vào đây"><br><br>
+        <p id="ketqua" name="kq" style="font-size: 30px;">Kết quả</p>
+        <div>
+            <input type="button"  value="ok" onclick="document.getElementById(hamketqua())"> 
+            <input type="button" value="cancel" onclick="document.getElementById(thoat())">
+        </div>
+    </div>
+    
+    <script>
+        function hamketqua(){
+            var a = parseInt(document.getElementById("a").value) ; 
+            var b = parseInt(document.getElementById("b").value) ;
+            var nam = parseInt(document.getElementById("nam").value) ;
+            var total;
+            switch (nam){
+                case 1: 
+                    total = (a + (b * 2)) / 3;
+                    document.getElementById("tong").value = parseFloat(total);
+                    break;
+                case 2: 
+                    total = ((a * 2) + (b * 3)) / 5;
+                    document.getElementById("tong").value = parseFloat(total);
+                    break;
+                case 3: 
+                    total = ((a * 3) + (b * 4)) / 7;
+                    document.getElementById("tong").value = parseFloat(total);
+                    break;
+                default:
+                    document.write("bạn nhập sai năm chỉ có 1, 2, 3 năm sinh viên thôi!!!");
+                    break;
+            }
+            if(total >= 9.0){
+                document.getElementById("ketqua").innerHTML = "gioi" ;
+                document.querySelector("p[name = 'kq']").style.color = "green";
+            }
+            else if(total >= 7.0 && total < 9.0){
+                document.getElementById("ketqua").innerHTML = "kha" ;
+                document.querySelector("p[name = 'kq']").style.color = "yellow";
+            }
+            else if(total >= 5.0 && total < 7.0){
+                document.getElementById("ketqua").innerHTML = "trung binh" ;
+                document.querySelector("p[name = 'kq']").style.color = "red";
+            }
+            else{
+                document.getElementById("ketqua").innerHTML = "ban dung buon nha";
+            }
+           
+        }
+        function thoat(){
+            document.write("thoát thành công");
+        }
+    </script>
+</body>
+</html>
