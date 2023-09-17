@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 600px;
+            border-spacing: 0;
+            border: 1px solid rebeccapurple;
+        }
+
+        #tab1 tr {
+            height: 40px;
+        }
+
+        #tab1 tr th,
+        #tab1 tr td {
+            text-align: center;
+            border-bottom: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>New Product</h1>
+    <form name="form">
+        <p>
+            <label for="">
+                Producname 
+                <input type="text" id="pro">
+            </label>
+            <label for="">
+                Quantity
+                <input type="number" id="qua">
+            </label>
+        </p>
+        <p>
+            <label for="">
+                Unit Price 
+                <input type="number" id="uni">
+            </label>
+            <label for="">
+                Discount
+                <input type="number" id="dis">
+            </label>
+        </p>
+        <p>
+            <button onclick="sell(); return false;">ok</button>
+            <button onclick="">cancle</button>
+        </p>
+    </form> 
+    <table style="border: 1px solid black;" id="tab1"  >
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Produc name</th>
+                <th>Quantity</th>
+                <th>Unit Price</th>
+                <th>Discount</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- hien thi -->
+        </tbody>
+        
+    </table>
+    <script src="table.js"></script>
+</body>
+</html>
