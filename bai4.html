@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+        }
+        body div{
+            width: 1000px;
+            font-size: 30px;
+            text-align: center;
+            background-color: aquamarine;
+            border-radius: 20px;
+        }
+        input:not(#but){
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>Chose your selection!<p>
+            <form name="form">
+                <label>
+                    swimming: 500k
+                    <input type="checkbox" id="swi" value="500">
+                </label>
+                <lable>
+                    football: 600k
+                    <input type="checkbox" id="foo" value="600">
+                </lable>
+                <lable>  
+                    dance: 200k
+                    <input type="checkbox" id="dan" value="200">
+                </lable>
+                <lable>
+                    singer: 1000k
+                    <input type="checkbox" id="sin" value="1000">
+                </lable>
+            </form>
+            <hr>
+            <form name="form1">
+                <p>Who are you?</p>
+                <label>
+                    Student: 10%
+                    <input type="radio" name="Who" id="stu" value="10">
+                </label>
+                <label>
+                    Pupil: 30%
+                    <input type="radio" name="Who" id="pup" value="30">
+                </label>
+                <label>
+                    Parents: 3%
+                    <input type="radio" name="Who" id="par" value="3">
+                </label>
+            </form>
+            <p>Discount:</p><p id="sale"></p>
+            <p>Total: </p><p id="dis"></p>
+            <input type="button" onclick="checktotal()" value="check" id="but">
+    </div>
+
+    <script>
+        function checktotal() {
+        let dis = 0;
+        let total = 0;
+        let checkboxes = document.querySelectorAll("input[type='checkbox']:checked");
+
+        if (checkboxes.length === 0) {
+            document.getElementById("dis").innerHTML = "Không có môn học nào được chọn";
+        } else {
+            checkboxes.forEach(function (checkbox) {
+                total += parseInt(checkbox.value);
+            });
+
+            if (document.querySelector("input[id='stu']").checked) {
+                dis = document.querySelector("input[id='stu']").value;
+            } 
+            else if (document.querySelector("input[id='pup']").checked) {
+                dis = document.querySelector("input[id='pup']").value;
+            } 
+            else if (document.querySelector("input[id='par']").checked) {
+                dis = document.querySelector("input[id='par']").value;
+            }
+
+            Discount(dis);
+            let t = total - (total * (dis / 100));
+            document.getElementById("dis").innerHTML = parseInt(t);
+        }
+
+        function Discount(dis) {
+            document.getElementById("sale").innerHTML = total * (parseInt(dis) / 100);
+        }
+        }
+    </script>
+</body>
+</html>
